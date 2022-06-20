@@ -24,17 +24,7 @@ insert into car values('KA041702','Lamborgini','2005');
 
 select * from car;
 
-create table accident(report_num int, acc_date date, location varchar(30), primary key(report_num));
 
-desc accident;
-
-insert into accident values(11,12/10/2008,'Delhi');
-insert into accident values(12,14/8/2003,'Banglore');
-insert into accident values(13,15/6/2000,'Mumbai');
-insert into accident values(14,1/1/2010,'Kolkata');
-insert into accident values(15,30/9/2012,'Mysore');
-
-select * from accident;
 
 drop table accident;
 create table accident(report_num int, acc_date date, location varchar(30), primary key(report_num));
