@@ -24,3 +24,9 @@ insert into catalog values(1,2,500.0);
 insert into catalog values(2,2,200.0);
 insert into catalog values(2,1,1000.0);
 select * from catalog;
+
+
+select count(pname) from parts where pname is not null;
+
+select sname from suppliers;
+select sname from suppliers where color == (select sname from parts where color == "Red");
