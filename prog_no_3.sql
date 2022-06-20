@@ -29,4 +29,4 @@ select * from catalog;
 select count(pname) from parts where pname is not null;
 
 select sname from suppliers;
-select sname from suppliers where color == (select sname from parts where color == "Red");
+select sname from suppliers where sid == sid from catalog where pid == (select pid from parts where color == "Red");
