@@ -25,7 +25,11 @@ insert into class values("BA","2:15:00","403",2);
 insert into class values("CA","2:10:00","404",3);
 desc enrolled;
 
-insert into enrolled(10,);
+insert into enrolled values('10','class1');
+insert into enrolled values('15','class2');
+insert into enrolled values('20','class3');
+insert into enrolled values('25','class4');
+insert into enrolled values('30','class5');
 
 select distinct s.sname from student s,faculty f,enrolled e,class c where s.snum=e.snum and e.cname=c.cname and c.fid=f.fid and f.fname='Nmaratha M' and s.level='junior';
 select c.cname from class c where room='r1' or c.cname in(select e.cname from enrolled e group by e.cname having count(*)>=5);
