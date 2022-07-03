@@ -26,7 +26,10 @@ insert into catalog values(2,1,1000.0);
 select * from catalog;
 
 
-select count(pname) from parts where pname is not null;
-
-select sname from suppliers;
-select sname from suppliers where sid == sid from catalog where pid == (select pid from parts where color == "Red");
+select distinct p.pname from parts p,catalog c where p.pid=c.pid;
+select s.sname from supplier s where not exists((select p.pid from parts p where (select c.pid from catalog c where c.sid=s.sid)));
+select p.pid,s.sname from parts p,supplier s ,catalog c where c.pid=p.pid and c.sid=s.sid and c.cost=(select max(c1.cost)from catalog c1 where(c.pid=p.pid));
+select c.sid from catalog c where c.cost>(select avg(cost) from catalog );
+select avg(c1.cost) from catalog c1;
+select sname from supplier where sid in(select sid from catalog group by sid having count(*))>=(select count(*) from parts where color='red');
+select sname from catalog c,parts p where c.pid=p.pid and color='red' group by sid having color='red';
